@@ -15,7 +15,7 @@ async  function  createPost(req,res,next){
 /*<--------read Post with the author ------->*/
 
 async function readPosts(req,res,next){
-         const posts= await postModel.findAll({include:userModel, as :"author"}) 
+         const posts= await postModel.findAll({include:userModel}) 
          res.json({message:"posts",posts})    
 }
 
