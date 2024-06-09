@@ -3,7 +3,6 @@ import userRouter from "./src/Routes/userRoute.js";
 import commentRouter from './src/Routes/commentRoute.js';
 import postRouter from './src/Routes/postRoute.js';
 import cors from "cors";
-app.use(cors());
 const  bootstrap=(app,express)=>{
     sequelize.sync({alter:true});
     app.use(express.json());
@@ -13,5 +12,6 @@ const  bootstrap=(app,express)=>{
     app.use('*',(req,res)=>{
         res.status(404).send("page Not Found");
     })
+    app.use(cors());
 }
 export default bootstrap
